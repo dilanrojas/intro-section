@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SnapHeader from '../components/SnapHeader.astro'
+import EvenColumns from '../layouts/EvenColumns.astro'
+import Hero from '../components/Hero.astro'
+import HeroIlustration from '../components/HeroIlustration.astro'
+import Attribution from '../components/Attribution.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+
+		<SnapHeader />
+
+		<EvenColumns>
+			<Hero />
+			<HeroIlustration />
+		</EvenColumns>
+
+		<Attribution />
+	
+	</main>
+</Layout>

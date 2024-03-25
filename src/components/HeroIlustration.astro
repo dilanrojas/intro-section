@@ -1,0 +1,32 @@
+<div class="hero-ilustration">
+  <img src="/image-hero-desktop.png" alt="">
+</div>
+
+<style>
+  .hero-ilustration {
+    grid-area: a2;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  @media(max-width: 900px) {
+    .hero-ilustration {
+      justify-content: center;
+    }
+    .hero-ilustration img {
+      content: url("/image-hero-mobile.png");
+      aspect-ratio: 125 / 94;
+      max-width: auto;
+    }
+  }
+
+  img {
+    content: url("/image-hero-desktop.png");
+    width: 100%;
+    max-width: 413px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+</style>

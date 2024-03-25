@@ -1,0 +1,35 @@
+<section class="even-columns container" style="--custom-width: 1020px">
+  <slot />
+</section>
+
+<style>
+  .container {
+		--max-width: var(--custom-width, 1230px);
+		--padding: 2rem;
+    
+	  width: min(var(--max-width), 100% - (var(--padding) * 2));
+		margin-inline: auto;
+	}
+  .even-columns {
+    padding-top: 1.9em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    grid-template-areas:
+      "a1 a2"
+    ;
+  }
+
+  @media(max-width: 900px) {
+    .even-columns {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "a2"
+      "a1";
+    }
+    .container {
+      --padding: 0rem;
+    }
+  }
+
+</style>

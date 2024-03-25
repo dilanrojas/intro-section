@@ -1,0 +1,381 @@
+<header>
+  <div class="dim-background"></div>
+  <div class="pm-nav-wrapper container">
+    <div class="logo-wrapper">
+      <img src="/logo.svg" alt="Logo de snap">
+    </div>
+    <nav class="pm-nav">
+      <ul class="pm-nav-list">
+        <li>
+          <a href="#" id="features-btn">Features <img class="features-arrow" src="/icon-arrow-down.svg" alt="Icono dropdown"></a>
+
+          <div class="dropdown features-dropdown-wrapper">
+            <ul class="features-dropdown-list flow" style="--flow-space: .7em">
+              <li><a href="#"><img src="/icon-todo.svg" alt="Icono de lista por hacer"> <div>Todo list</div></a></li>
+              <li><a href="#"><img src="/icon-calendar.svg" alt="Icono de calendario"> <div>Calendar</div></a></li>
+              <li><a href="#"><img src="/icon-reminders.svg" alt="Icono de recordatorios"> <div>Reminders</div></a></li>
+              <li><a href="#"><img src="/icon-planning.svg" alt="Icono de planeamiento"> <div>Planning</div></a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#" id="company-btn">Company <img class="company-arrow" src="/icon-arrow-down.svg" alt="Icono dropdown"></a>
+
+          <div class="dropdown company-dropdown-wrapper">
+            <ul class="company-dropdown-list flow" style="--flow-space: .7em">
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">About</a></li>
+        <li class="sign-up-list">
+          <a href="#">
+            <button data-style="transparent">Login</button>
+          </a>
+          <a href="#">
+            <button>Register</button>
+          </a>
+        </li>
+      </ul>
+      <div class="toggle-mobile-menu">
+        <img class="icon-open" src="/icon-menu.svg" alt="Abrir menu lateral">
+        <img class="icon-close" src="/icon-close-menu.svg" alt="Cerrar menú lateral">
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .pm-nav-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0rem;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    height: 35px;
+    align-items: end;
+    padding-right: 3.5em;
+  }
+
+  .pm-nav {
+    display: flex;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .pm-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    width: 100%;
+  }
+
+  .pm-nav-list a {
+    color: var(--clr-medium-gray);
+    transition: .1s ease;
+    display: flex;
+    gap: .5em;
+    align-items: center;
+  }
+
+  .pm-nav-list a:hover {
+    color: var(--clr-off-black);
+  }
+
+  .sign-up-list {
+    margin-left: auto;
+    display: flex;
+    gap: 1.5em;
+  }
+
+
+  button {
+    font-size: var(--fs-350);
+    cursor: pointer;
+    color: var(--clr-medium-gray);
+    border: 2px solid var(--clr-medium-gray);
+    background-color: transparent;
+    padding: .7em 1.4em;
+    border-radius: 12px;
+    transition: color .1s ease, border .1s ease;
+  }
+
+  button[data-style="transparent"] {
+    border: 2px solid transparent;
+  }
+
+  button:hover {
+    color: var(--clr-off-black);
+    border: 2px solid var(--clr-off-black);
+  }
+
+  button[data-style="transparent"] {
+    border: 1px solid transparent
+  }
+
+  html[data-overlay] {
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  /* Dropdown */
+  .features-dropdown-wrapper {
+    display: none;
+    transform: translateX(-58px) translateY(17px);
+  }
+
+  .features-dropdown-wrapper[drop] {
+    display: block;
+    animation: fade-in 200ms forwards;
+  }
+
+  .features-dropdown-wrapper[closing] {
+    display: block;
+    animation: fade-out 200ms forwards;
+  }
+
+  .features-arrow[drop] {
+    content: url(/icon-arrow-up.svg);
+  }
+
+  .company-arrow[drop] {
+    content: url(/icon-arrow-up.svg);
+  }
+
+  .features-dropdown-list a {
+    display: grid;
+    grid-template-columns: 2.4em auto;
+    place-items: center;
+  }
+
+  .features-dropdown-list div {
+    min-width: 73px;
+  }
+
+  .company-dropdown-wrapper {
+    display: none;
+    transform: translateY(17px);
+  }
+
+  .company-dropdown-wrapper[drop] {
+    display: block;
+    animation: fade-in 200ms forwards;
+  }
+
+  .company-dropdown-wrapper[closing] {
+    display: block;
+    animation: fade-out 200ms forwards;
+  }
+
+  .dropdown {
+    position: fixed;
+    background-color: var(--clr-off-white);
+    box-shadow: 0px 0px 30px rgb(0, 0, 0, .12);
+    padding: 1em;
+    border-radius: 10px;
+  }
+
+  .dim-background {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, .65);
+    position: fixed;
+    z-index: 30;
+  }
+
+  .toggle-mobile-menu {
+    cursor: pointer;
+    margin-left: auto;
+    display: none;
+    align-items: center;
+    justify-self: center;
+    z-index: 50;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  .container {
+		--max-width: var(--custom-width, 1230px);
+		--padding: 2rem;
+
+	  width: min(var(--max-width), 100% - (var(--padding) * 2));
+		margin-inline: auto;
+	}
+
+  @media(max-width: 900px) {
+    .dim-background[active] {
+      display: block;
+      animation: fade-in 300ms forwards;
+    }
+    .dim-background[closing] {
+      display: block;
+      animation: fade-out 500ms forwards;
+    }
+    .toggle-mobile-menu {
+      display: flex;
+    }
+    .pm-nav-list {
+      top: 0;
+      right: -500px;
+      padding: 6em 1.5em;
+      position: fixed;
+      align-items: start;
+      background-color: var(--clr-off-white);
+      flex-direction: column;
+      height: 100%;
+      max-width: 380px;
+      z-index: 40;
+      transition: right .2s ease;
+    }
+    .pm-nav-list.active {
+      right: 0;
+    }
+    .sign-up-list {
+      margin-left: 0;
+      width: 100%;
+      flex-direction: column;
+    }
+    .sign-up-list button {
+      width: 100%;
+    }
+    .features-dropdown-wrapper {
+      transform: translateX(0px) translateX(0px);
+    }
+    .dropdown a {
+      font-size: var(--fs-400);
+    }
+    .company-dropdown-wrapper {
+      transform: translateY(0px);
+    }
+    .dropdown {
+      position: static;
+      padding: 1.5em 0em 0em 1.5em;
+      box-shadow: none;
+    }
+
+    @media(max-width: 600px) {
+      .pm-nav-list {
+        max-width: 300px;
+      }
+    }
+
+    @media(max-width: 400px) {
+      .pm-nav-list {
+        max-width: 230px;
+      }
+    }
+  }
+
+</style>
+
+<script>
+  const html = document.querySelector("html") as HTMLElement
+  const dimBackground = document.querySelector(".dim-background")
+  const toggleFeatures = document.querySelector("#features-btn") as HTMLElement
+  const toggleCompany = document.querySelector("#company-btn") as HTMLElement
+  const featuresArrow = document.querySelector(".features-arrow") as HTMLElement
+  const featuresDropdown = document.querySelector(".features-dropdown-wrapper") as HTMLElement
+  const companyDropdown = document.querySelector(".company-dropdown-wrapper") as HTMLElement
+  const companyArrow = document.querySelector(".company-arrow") as HTMLElement
+  const openMenu = document.querySelector(".icon-open") as HTMLElement
+  const closeMenu = document.querySelector(".icon-close") as HTMLElement
+  const mobileMenu = document.querySelector(".pm-nav-list") as HTMLElement
+
+  function dropFeatures() {
+    featuresDropdown.toggleAttribute("drop")
+    featuresArrow.toggleAttribute("drop")
+  }
+
+  function dropCompany() {
+    companyDropdown.toggleAttribute("drop")
+    companyArrow.toggleAttribute("drop")
+  }
+
+  toggleFeatures.addEventListener("click", () => {
+    dropFeatures()
+    if (featuresDropdown.hasAttribute("drop")) {
+      toggleFeatures.addEventListener("click", () => {
+        featuresDropdown.setAttribute("closing", "")
+        featuresDropdown.addEventListener("animationend", () => {
+          featuresDropdown.removeAttribute("closing")
+        })
+      }, {once: true})
+    }
+  })
+
+  toggleCompany.addEventListener("click", () => {
+    dropCompany()
+    if (companyDropdown.hasAttribute("drop")) {
+      toggleCompany.addEventListener("click", () => {
+        companyDropdown.setAttribute("closing", "")
+        companyDropdown.addEventListener("animationend", () => {
+          companyDropdown.removeAttribute("closing")
+        })
+      }, {once: true})
+    }
+  })
+
+  openMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("active")
+    openMenu.style.display = "none"
+    closeMenu.style.display = "block"
+    dimBackground.toggleAttribute("active")
+    html.toggleAttribute('data-overlay');
+  })
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.remove("active")
+    closeMenu.style.display = "none"
+    openMenu.style.display = "block"
+    dimBackground.toggleAttribute("active")
+    html.removeAttribute('data-overlay');
+    if (companyDropdown.hasAttribute("drop") && companyArrow.hasAttribute("drop")) {
+      companyDropdown.toggleAttribute("drop")
+      companyArrow.toggleAttribute("drop")
+    }
+    if (featuresDropdown.hasAttribute("drop") && featuresArrow.hasAttribute("drop")) {
+      featuresDropdown.toggleAttribute("drop")
+      featuresArrow.toggleAttribute("drop")
+    }
+    dimBackground.setAttribute("closing", "")
+    dimBackground.addEventListener("animationend", () => {
+      dimBackground.removeAttribute("closing")
+    }, {once: true})
+  })
+</script>

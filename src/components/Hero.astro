@@ -1,0 +1,132 @@
+<div class="hero">
+
+  <div class="content-wrapper">
+    <h1>Make remote work</h1>
+
+    <p>
+      Get your team in sync, no matter your location. Streamline processes, 
+      create team rituals, and watch productivity soar.
+    </p>
+  
+    <a href="#">
+      <button>Learn more</button>
+    </a>
+  </div>
+
+  <div class="links">
+    <a href="#">
+      <img class="databiz-logo" src="/client-databiz.svg" alt="Logo de databiz">
+    </a>
+    <a href="#">
+      <img class="audiophile-logo" src="/client-audiophile.svg" alt="Logo de audiophile">
+    </a>
+    <a href="#">
+      <img src="/client-meet.svg" alt="Logo de meet">
+    </a>
+    <a href="#">
+      <img src="/client-maker.svg" alt="Logo de maker">
+    </a>
+  </div>
+</div>
+
+<style>
+  .hero {
+    grid-area: a1;
+    padding-left: 2.5em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 4em;
+  }
+
+  .content-wrapper {
+    padding-top: 4em;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.6em;
+  }
+
+  h1 {
+    font-size: var(--fs-900);
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: .5em;
+    max-width: 45ch;
+    color: var(--clr-medium-gray);
+  }
+
+  .links {
+    transform: translateY(15px);
+    margin-top: auto;
+    display: flex;
+    gap: 1.5em 2.3em;
+    align-items: center;
+  }
+
+  .links img {
+    width: 75px;
+    height: 100%;
+  }
+
+  .audiophile-logo {
+    width: 62px!important;
+  }
+
+  .databiz-logo {
+    width: 95px!important;
+  }
+
+  .content-wrapper a {
+    width: fit-content;
+  }
+  
+  button {
+    cursor: pointer;
+    border: 1px solid var(--clr-off-black);
+    color: var(--clr-off-white);
+    background-color: var(--clr-off-black);
+    padding: 1em 2em;
+    border-radius: 12px;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-400);
+    transition: color .1s ease;
+    transition: background-color .1s ease, color .1s ease;
+  }
+
+  button:hover {
+    background-color: transparent;
+    color: var(--clr-off-black);
+  }
+
+  @media(max-width: 900px) {
+    .hero {
+      padding: 0em;
+      gap: 2em;
+      align-items: center;
+    }
+    .content-wrapper {
+      padding: 0em 1em;
+      padding-top: 2em;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      gap: 1.5em;
+    }
+    .links {
+      gap: 1.5em 1.2em;
+      margin-top: 0px;
+      padding: 0em 1em;
+    }
+    .links img {
+      width: 85%!important;
+    }
+    h1 {
+      font-size: var(--fs-800);
+    }
+  }
+</style>
